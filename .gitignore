@@ -1,0 +1,42 @@
+# Environments
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Env files
+.env
+
+# Database
+*.db
+*.sqlite3
+
+# Data / evidence (contains generated media, not source)
+data/videos/*
+data/faces/*
+data/events/*
+data/evidence/*
+!data/videos/.gitkeep
+!data/faces/.gitkeep
+!data/events/.gitkeep
+!data/evidence/.gitkeep
+
+# Models (large binary weights, fetched separately)
+models/yolo/*.pt
+models/face/*
+models/anpr/*
+!models/yolo/.gitkeep
+!models/face/.gitkeep
+!models/anpr/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

@@ -1,0 +1,37 @@
+# === IBVAP requirements ===
+# Phase 1: backend skeleton, DB, config, logging, health API, Streamlit shell.
+# Later phases will append: ultralytics, opencv-python, supervision, easyocr,
+# torch, face-recognition/insightface, etc. Kept minimal here so Phase 1
+# installs fast and works on any machine without a GPU or model downloads.
+
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+sqlalchemy==2.0.35
+pydantic==2.9.2
+pydantic-settings==2.5.2
+python-dotenv==1.0.1
+websockets==13.1
+streamlit==1.38.0
+requests==2.32.3
+
+# === Phase 2: video ingestion ===
+opencv-python-headless==4.10.0.84
+python-multipart==0.0.9
+aiofiles==24.1.0
+
+# === Phase 3: object detection ===
+# NOTE: this pulls in torch (CPU build from PyPI) and is a large install
+# (a few GB). First run also downloads YOLO weights (~5-40MB depending on
+# model size) from GitHub — make sure you have internet access once.
+ultralytics==8.3.28
+
+# === Phase 4: multi-object tracking ===
+# Pinned to 0.24.0: newer releases deprecate the ByteTrack class name we use.
+supervision==0.24.0
+
+# === Phase 6: ANPR ===
+# NOTE: pulls in additional deps (scikit-image, python-bidi, ninja, etc.) on
+# top of the torch already installed for ultralytics. First run downloads
+# EasyOCR's detection + recognition models (~65MB total) — internet access
+# needed once, then cached locally.
+easyocr==1.7.2
